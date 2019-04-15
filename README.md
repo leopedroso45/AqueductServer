@@ -1,4 +1,4 @@
-# teste
+# Test
 
 ## Running the Application Locally
 
