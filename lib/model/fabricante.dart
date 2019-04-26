@@ -9,7 +9,4 @@ class _Fabricante {
   @Column(unique: true)
   String name;
 
-  @Column(nullable: false)
-  double value;
-
 }
