@@ -7,8 +7,12 @@ class TesteChannel extends ApplicationChannel {
   @override
   Future prepare() async {
     logger.onRecord.listen((rec) => print("$rec ${rec.error ?? ""} ${rec.stackTrace ?? ""}"));
-    //this.context = ManagedContext(dataModel, persistentStore)
-    context = null;
+  
+    final dataModel = ManagedDataModel.fromCurrentMirrorSystem();
+    final persistentStore = PostgreSQLPersistentStore.fromConnectionInfo(
+      "fabricantes_user", "password", "localhost", 5432, "fabricantes");
+
+    context = ManagedContext(dataModel, persistentStore);
   }
 
   @override
